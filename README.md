@@ -12,7 +12,7 @@ This is useful when you need to expose the `unix://` socket through
 
 Docker example:
 
-```shell
+```bash
 $ docker run \
     --rm \
     --name socat-docker \
@@ -38,7 +38,7 @@ Docker-compose example:
 
 And then connect to the Docker:
 
-```shell
+```bash
 $ curl http://127.0.0.1:2375/version
 ```
 
@@ -49,7 +49,7 @@ You should use `root` user for run `socat` inside a container as a
 In this case is important in that by default `docker` socket runs
 with next permissions:
 
-```shell
+```bash
 srw-rw----. 1 root docker 0 Jan 1 00:00 /var/run/docker.sock
 ```
 
@@ -62,7 +62,7 @@ For example, this is can be useful when you need to access inside a
 
 Docker example:
 
-```shell
+```bash
 $ docker run \
     --name socat-redis \
     -v /tmp/redis.sock:/var/run/docker.sock:rw \
@@ -83,6 +83,6 @@ Docker-compose example:
 
 And then connect to the conteiner:
 
-```shell
+```bash
 $ docker run --rm --network docker_default alpine:3.8 nc -v socat-redis 2375
 ```
